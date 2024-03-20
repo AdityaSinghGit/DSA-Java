@@ -1,4 +1,4 @@
-package cycle_sort;
+
 // https://leetcode.com/problems/first-missing-positive/description/
 
 import java.util.Arrays;

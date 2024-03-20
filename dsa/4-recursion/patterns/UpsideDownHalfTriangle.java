@@ -1,4 +1,3 @@
-package patterns;
 
 public class UpsideDownHalfTriangle {
     public static void main(String[] args) {

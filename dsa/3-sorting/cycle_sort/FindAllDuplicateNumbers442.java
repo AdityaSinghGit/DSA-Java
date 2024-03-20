@@ -1,4 +1,3 @@
-package cycle_sort;
 
 // https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/1177888372/
 import java.util.ArrayList;

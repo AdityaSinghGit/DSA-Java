@@ -1,4 +1,4 @@
-package cycle_sort;
+
 // https://leetcode.com/problems/find-the-duplicate-number/description/
 
 //Amazon and Microsoft question

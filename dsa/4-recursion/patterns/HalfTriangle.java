@@ -1,4 +1,3 @@
-package patterns;
 
 public class HalfTriangle {
     public static void main(String[] args) {

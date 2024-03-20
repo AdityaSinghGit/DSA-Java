@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class LeetCode1295 {
     public static void main(String[] args) {
@@ -8,12 +7,12 @@ public class LeetCode1295 {
 
     /// Find numbers with even number of digits
     public static int findNumbers(int[] nums) {
-        double num = 0;
+        double numLength = 0;
         int count = 0;
         for (int i = 0; i < nums.length; i++) {
             /// counts length of a number
-            num = (int) (Math.log10(nums[i])) + 1;
-            if (num % 2 == 0) {
+            numLength = (int) (Math.log10(nums[i])) + 1;
+            if (numLength % 2 == 0) {
                 count++;
             }
         }
