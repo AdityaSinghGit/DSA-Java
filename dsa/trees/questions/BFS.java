@@ -190,12 +190,140 @@ public class BFS {
         }
 
         Node leftMost = root;
-
         while (leftMost.left != null) {
-
+            Node current = leftMost;
+            while (current != null) {
+                current.left.next = current.right;
+                if (current.next != null) {
+                    current.right.next = current.next.left;
+                }
+                current = current.next;
+            }
+            leftMost = leftMost.left;
         }
-
         return root;
     }
     // -----------------X------------X----------X-------------------
+
+    // LeetCode 199
+    // https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+
+        if (root == null) {
+            return result;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode currentNode = queue.poll();
+                if (i == levelSize - 1) {
+                    result.add(currentNode.val);
+                }
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
+                }
+                if (currentNode.right != null) {
+                    queue.offer(currentNode.right);
+                }
+            }
+        }
+        return result;
+    }
+    // -----------------X------------X----------X-------------------
+
+    // LeetCode 993
+    // https://leetcode.com/problems/cousins-in-binary-tree/description/
+    public boolean isCousins(TreeNode root, int x, int y) {
+        TreeNode xx = findNode(root, x);
+        TreeNode yy = findNode(root, y);
+
+        return (level(root, xx, 0) == level(root, yy, 0)) && (!isSibling(root, xx, yy));
+    }
+
+    private TreeNode findNode(TreeNode node, int x) {
+        if (node == null) {
+            return null;
+        }
+
+        if (node.val == x) {
+            return node;
+        }
+
+        TreeNode n = findNode(node.left, x);
+        if (n != null) {
+            return n;
+        }
+        return findNode(node.right, x);
+    }
+
+    private int level(TreeNode node, TreeNode x, int level) {
+        if (node == null) {
+            return 0;
+        }
+
+        if (node == x) {
+            return level;
+        }
+
+        int n = level(node.left, x, level + 1);
+        if (n != null) {
+            return n;
+        }
+
+        return level(node.right, x, level + 1);
+    }
+
+    private boolean isSibling(TreeNode node, TreeNode xx, TreeNode yy) {
+        if (node == null) {
+            return false;
+        }
+
+        return (node.left == xx && node.right == yy) || (node.left == yy && node.right == xx)
+                || isSibling(node.left, xx, yy)
+                || isSibling(node.right, xx, yy);
+    }
+    // -----------------X------------X----------X-------------------
+
+    // LeetCode 101
+    // https://leetcode.com/problems/symmetric-tree/description/
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return false;
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(root.left);
+        queue.add(root.right);
+
+        while (!queue.isEmpty()) {
+            TreeNode left = queue.poll();
+            TreeNode right = queue.poll();
+
+            if (left == null && right == null) {
+                continue;
+            }
+
+            if (left == null || right == null) {
+                return false;
+            }
+
+            if (left.val != right.val) {
+                return false;
+            }
+
+            queue.add(left.left);
+            queue.add(right.right);
+            queue.add(left.right);
+            queue.add(right.left);
+        }
+        return queue.isEmpty();
+    }
+    // -----------------X------------X----------X-------------------
+
 }
