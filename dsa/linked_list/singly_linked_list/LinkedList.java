@@ -385,8 +385,8 @@ public class LinkedList {
     }
     // -----------x-------x-------x----------
 
-    // ****************LeetCode 234****************
-    // https://leetcode.com/problems/palindrome-linked-list/description/
+    // ****************LeetCode 61****************
+    // https://leetcode.com/problems/rotate-list/description/
     public Node rotateRight(Node head, int k) {
         if (k <= 0 || head == null || head.next == null) {
             return head;
