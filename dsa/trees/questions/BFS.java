@@ -322,7 +322,7 @@ public class BFS {
             queue.add(left.right);
             queue.add(right.left);
         }
-        return queue.isEmpty();
+        return true;
     }
     // -----------------X------------X----------X-------------------
 
