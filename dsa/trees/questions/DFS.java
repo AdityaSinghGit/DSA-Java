@@ -1,11 +1,15 @@
 package trees.questions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 import javax.swing.tree.TreeNode;
+
+import org.w3c.dom.Node;
 
 public class DFS {
     int diameter = 0;
@@ -163,6 +167,55 @@ public class DFS {
         }
 
         return helper(node.right, k);
+    }
+    // -----------------X------------X----------X-------------------
+
+    // LeetCode 105
+    // https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder.length == 0 && inorder.length == 0) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(preorder[0]);
+        int index = 0;
+        for (int i = 0; i < preorder.length - 1; i++) {
+            if (inorder[i] == root.val) {
+                index = i;
+            }
+        }
+
+        root.left = buildTree(Arrays.copyOfRange(preorder, 1, index + 1), Arrays.copyOfRange(inorder, 0, index));
+        root.right = buildTree(Arrays.copyOfRange(preorder, index + 1, preorder.length),
+                Arrays.copyOfRange(inorder, index + 1, inorder.length));
+
+        return root;
+    }
+    // -----------------X------------X----------X-------------------
+
+    // DFS using Stack
+    void dfsStack(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        List<Integer> result = new ArrayList();
+
+        Stack<Node> stack = new Stack<>();
+        stack.push(node);
+
+        while (!stack.isEmpty()) {
+            Node current = stack.pop();
+            result.add(current.val);
+
+            if (current.right != null) {
+                stack.push(current.right);
+            }
+            if (current.left != null) {
+                stack.push(current.left);
+            }
+        }
+
     }
     // -----------------X------------X----------X-------------------
 }
