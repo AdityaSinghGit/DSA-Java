@@ -6,7 +6,7 @@ import java.util.List;
 public class IsomorphicStrings205 {
 
     public static void main(String[] args) {
-        boolean ans = isIsomorphic("titlex", "biblee");
+        boolean ans = isIsomorphic("title", "bible");
         System.out.println(ans);
     }
 
