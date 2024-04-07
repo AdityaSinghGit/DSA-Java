@@ -2,6 +2,7 @@ public class BuyAndSellStocks121 {
     public static void main(String[] args) {
         int[] arr = { 3, 2, 6, 5, 0, 3 };
         System.out.println(maxProfit(arr));
+        System.out.println(maxProfitSlidingWindow(arr));
     }
 
     public static int maxProfit(int[] prices) {
@@ -25,5 +26,24 @@ public class BuyAndSellStocks121 {
         }
 
         return profit;
+    }
+
+    public static int maxProfitSlidingWindow(int[] prices) {
+        int buy = 0;
+        int sell = 1;
+        int maxProfit = 0;
+
+        while (sell < prices.length) {
+            int currentProfit = 0;
+            if (prices[buy] < prices[sell]) {
+                currentProfit = prices[sell] - prices[buy];
+                maxProfit = Math.max(maxProfit, currentProfit);
+            } else {
+                buy = sell;
+            }
+            sell++;
+        }
+
+        return maxProfit;
     }
 }
