@@ -1,0 +1,62 @@
+Here's a table with some trick questions involving bitwise operations along with their solutions:
+
+========Question & Solutions=========
+⚪Check if a number is even.	
+(num & 1) == 0
+
+⚪Check if a number is odd.	
+(num & 1) == 1 or !(num & 1)
+
+⚪Check if a number is a power of two.	
+(num != 0) && ((num & (num - 1)) == 0)
+
+⚪Swap two numbers without using a temporary variable.	
+a = a ^ b; b = a ^ b; a = a ^ b;
+
+⚪Toggle the nth bit of a number.	
+num = num ^ (1 << n)
+
+⚪Check if the nth bit is set in a number.	
+(num & (1 << n)) != 0
+
+⚪Set the nth bit of a number.	
+`num = num
+
+⚪Clear the nth bit of a number.	
+num = num & ~(1 << n)
+
+⚪Count the number of set bits (popcount) in a number.	
+GeeksforGeeks: Count set bits or Brian Kernighan's Algorithm
+
+⚪Find the only non-repeating element in an array where every other element repeats twice.	
+XOR all elements, the result will be the non-repeating element.
+
+⚪Check if the sign of two integers is different.	
+(a ^ b) < 0
+
+⚪Check if all bits are set.	
+num == -1 (Assuming 2's complement representation where -1 has all bits set)
+
+⚪Check if all bits are unset.	
+num == 0
+
+⚪Reverse bits of a number.	
+GeeksforGeeks: Reverse bits
+
+⚪Find the maximum xor of two numbers in an array.	
+GeeksforGeeks: Maximum XOR
+
+⚪Find the missing number in an array where every other number appears twice.	
+XOR all elements in the array with indices and then with array values, the result will be the missing number.
+
+⚪Count the number of bits to flip to convert A to B.	
+GeeksforGeeks: Number of bits to flip
+
+⚪Find the majority element in an array.	
+GeeksforGeeks: Majority element
+
+⚪Generate power set using bitwise operators.	
+GeeksforGeeks: Power set
+
+⚪Find the element that appears once in an array where every other element appears thrice.	
+GeeksforGeeks: Element appears once

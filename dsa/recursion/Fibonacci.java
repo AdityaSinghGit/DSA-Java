@@ -4,7 +4,7 @@ public class Fibonacci {
     public static void main(String[] args) {
         // In this case if we give input = 50
         // The system will take too long to respond
-        System.out.println(fibo(7));
+        System.out.println(fibo(5));
 
         // With this method, we can easily calculate fibo of n in less time
         System.out.println(fiboFormula(50));

@@ -3,7 +3,7 @@ package recursion;
 public class ReverseNumber {
 
     public static void main(String[] args) {
-        int ans = reverseNumber(12345);
+        int ans = reverseNumber(123456);
         System.out.println(ans);
     }
 

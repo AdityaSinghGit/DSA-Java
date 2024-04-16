@@ -8,7 +8,7 @@ public class QuickSort {
         int[] arr = { 1, 6, 4, 3, 9, 8, 0, 5, 7 };
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
-        System.out.println(4 & 3);
+        System.out.println(3 & 2);
 
     }
 

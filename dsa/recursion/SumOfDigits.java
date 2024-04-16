@@ -2,7 +2,7 @@ package recursion;
 
 public class SumOfDigits {
     public static void main(String[] args) {
-        int ans = sumOfDigits(1);
+        int ans = sumOfDigits(1234);
         System.out.println(ans);
     }
 

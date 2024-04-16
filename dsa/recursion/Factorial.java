@@ -2,7 +2,7 @@ package recursion;
 
 public class Factorial {
     public static void main(String[] args) {
-        int ans = factorial(0);
+        int ans = factorial(4);
         System.out.println(ans);
     }
 

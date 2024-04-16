@@ -1,6 +1,8 @@
 package recursion;
 
 public class StepsToReduceNumToZero1342 {
+    // leetcode 1342
+    // https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/
     public static void main(String[] args) {
         int ans = numberOfSteps(123);
         System.out.println(ans);
