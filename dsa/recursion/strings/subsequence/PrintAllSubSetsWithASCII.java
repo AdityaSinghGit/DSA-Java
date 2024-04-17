@@ -11,6 +11,7 @@ public class PrintAllSubSetsWithASCII {
 
     }
 
+    // Print individual substrings
     static void printSubsetWithASCII(String p, String up) {
         if (up.isEmpty()) {
             System.out.println(p);
@@ -25,9 +26,10 @@ public class PrintAllSubSetsWithASCII {
 
     }
 
+    // Return arraylist containing all substrings
     static ArrayList<String> printSubsetWithASCIIArray(String p, String up) {
-        ArrayList<String> list = new ArrayList<String>();
         if (up.isEmpty()) {
+            ArrayList<String> list = new ArrayList<String>();
             list.add(p);
             return list;
         }

@@ -1,4 +1,4 @@
-package recursion.strings.subsequence;
+package recursion.strings.subset;
 
 public class RemoveCharFromString {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package recursion.strings.subsequence;
+package recursion.strings.subset;
 
 public class RemoveSmallerStringfromString {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class RemoveSmallerStringfromString {
         removeString("", given, "skipthis");
     }
 
-    // Approach with existing string
+    // Approach with new string
     static void removeString(String p, String up, String skip) {
         if (up.isEmpty()) {
             System.out.println(p);
@@ -26,7 +26,7 @@ public class RemoveSmallerStringfromString {
 
     }
 
-    // Approach with new string
+    // Approach with existing string
     static String removeStringFromOriginal(String up) {
         if (up.isEmpty()) {
             return "";
