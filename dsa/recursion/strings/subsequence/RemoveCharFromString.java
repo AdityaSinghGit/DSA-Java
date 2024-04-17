@@ -1,8 +1,8 @@
-package strings;
+package recursion.strings.subsequence;
 
 public class RemoveCharFromString {
     public static void main(String[] args) {
-        removeCharFromString("baccad", "");
+        removeCharFromString("", "baccad");
 
         // In case of confusion, on how it returned "bccdh"
         // watch kunal's video from 7:00 mins

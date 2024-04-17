@@ -1,4 +1,4 @@
-package strings;
+package recursion.strings.subsequence;
 
 public class LetterCombinationsOfPhoneNumber17 {
     public static void main(String[] args) {

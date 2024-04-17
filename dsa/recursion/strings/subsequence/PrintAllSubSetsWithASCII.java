@@ -1,4 +1,4 @@
-package strings.subsequence;
+package recursion.strings.subsequence;
 
 import java.util.ArrayList;
 

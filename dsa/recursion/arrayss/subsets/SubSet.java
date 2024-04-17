@@ -1,4 +1,4 @@
-package arrayss.subsets;
+package recursion.arrayss.subsets;
 
 import java.util.List;
 import java.util.ArrayList;
