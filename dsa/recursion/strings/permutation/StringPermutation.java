@@ -2,19 +2,19 @@ package recursion.strings.permutation;
 
 import java.util.ArrayList;
 
-public class Permutation {
+public class StringPermutation {
     public static void main(String[] args) {
 
         // permutation("", "abc");
 
-        // ArrayList<String> ans = findPermutation("", "abc");
-        // System.out.println(ans);
-
-        int ans = permutationCount("", "abc");
+        ArrayList<String> ans = findPermutation("", "abc");
         System.out.println(ans);
+
+        // int ans = permutationCount("", "abc");
+        // System.out.println(ans);
     }
 
-    // SIMPLY PRINT
+    // Prints processed permutations
     static void permutation(String p, String up) {
         if (up.isEmpty()) {
             System.out.println(p);
@@ -32,7 +32,7 @@ public class Permutation {
 
     }
 
-    // RETURN ARRAYLIST
+    // Returns processed permutations in ArrayList
     static ArrayList<String> findPermutation(String p, String up) {
         if (up.isEmpty()) {
             ArrayList<String> list = new ArrayList<String>();
@@ -44,7 +44,7 @@ public class Permutation {
 
         char ch = up.charAt(0);
         // ***IMPORTANT***
-        // For this logic, checkout notebook
+        // For this logic, checkout notebook/notes
         for (int i = 0; i <= p.length(); i++) {
             String first = p.substring(0, i);
             String second = p.substring(i, p.length());
@@ -63,7 +63,7 @@ public class Permutation {
         int count = 0;
         char ch = up.charAt(0);
         // ***IMPORTANT***
-        // For this logic, checkout notebook
+        // For this logic, checkout notebook/notes
         for (int i = 0; i <= p.length(); i++) {
             String f = p.substring(0, i);
             String s = p.substring(i, p.length());

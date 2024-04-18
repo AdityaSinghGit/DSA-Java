@@ -1,4 +1,4 @@
-package recursion.strings.subsequence;
+package recursion.strings.combination;
 
 /****** AMAZON QUESTION ********/
 
