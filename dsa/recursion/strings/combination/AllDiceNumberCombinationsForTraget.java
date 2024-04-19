@@ -1,8 +1,10 @@
 package recursion.strings.combination;
 
-/****** AMAZON QUESTION ********/
+public class AllDiceNumberCombinationsForTraget {
+    /****** AMAZON QUESTION ********/
+    // ANother varient of leetcode problem
+    // Gives all possible dice combinations returning the sum target
 
-public class DiceNumberCombinationsForTarget {
     public static void main(String[] args) {
         diceCombination("", 4);
     }
@@ -18,5 +20,4 @@ public class DiceNumberCombinationsForTarget {
         }
 
     }
-
 }
