@@ -27,7 +27,9 @@ public class FrogJumpProblem {
         if (dpArr[index] != -1) // if exists in dp array then return
             return dpArr[index];
 
+        // Taking ONE step and calculating the diff b\w them
         int left = findMinJump(index - 1, original, dpArr) + Math.abs(original[index] - original[index - 1]);
+        // Taking TWO steps and calculating the diff b\w them
         int right = Integer.MAX_VALUE;
         if (index > 1) {
             right = findMinJump(index - 2, original, dpArr) + Math.abs(original[index] - original[index - 2]);

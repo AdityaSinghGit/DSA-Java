@@ -22,7 +22,7 @@ public class HouseRobber198 {
 
     private static int houseRobber(int index, int[] dpArr, int[] nums) {
         if (index == 0) {
-            return nums[0];
+            return nums[0]; // ind = 0 means 0th element has not been picked yet.
         }
 
         if (index == -1) {
@@ -33,7 +33,9 @@ public class HouseRobber198 {
             return dpArr[index];
         }
 
+        // Pick one element and check with element at alternate position.
         int pick = nums[index] + houseRobber(index - 2, dpArr, nums);
+        // Not picked element is 0 and the adjacent element will be checked with.
         int notPick = 0 + houseRobber(index - 1, dpArr, nums);
 
         dpArr[index] = Math.max(pick, notPick);

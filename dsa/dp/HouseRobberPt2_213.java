@@ -3,6 +3,10 @@ package dp;
 public class HouseRobberPt2_213 {
     // Leetcode 213
     // https://leetcode.com/problems/house-robber-ii/description/
+
+    // In this question,
+    // First and Last cannot be together as the array is circular.
+    // Therefore, First and Last elements will be adjacent which we do not want.
     public static void main(String[] args) {
         int[] nums = { 1, 2, 3, 1 }; // 4
         int ans = rob3(nums);
@@ -16,22 +20,20 @@ public class HouseRobberPt2_213 {
         }
 
         int[] dpArr = new int[nums.length];
+        int[] dpArr2 = new int[nums.length];
 
         for (int i = 0; i < dpArr.length; i++) {
             dpArr[i] = -1;
-        }
-
-        int[] dpArr2 = new int[nums.length];
-
-        for (int i = 0; i < dpArr2.length; i++) {
             dpArr2[i] = -1;
         }
 
+        // Will exclude FIRST element
         int[] temp1 = new int[nums.length - 1];
         for (int i = 1; i < nums.length; i++) {
             temp1[i - 1] = nums[i];
         }
 
+        // Will exclude LAST element
         int[] temp2 = new int[nums.length - 1];
         for (int i = 0; i < nums.length - 1; i++) {
             temp2[i] = nums[i];
@@ -42,7 +44,7 @@ public class HouseRobberPt2_213 {
 
     private static int houseRobber(int index, int[] dpArr, int[] nums) {
         if (index == 0) {
-            return nums[0];
+            return nums[0]; // ind = 0 means 0th element has not been picked yet.
         }
 
         if (index == -1) {
@@ -53,7 +55,9 @@ public class HouseRobberPt2_213 {
             return dpArr[index];
         }
 
+        // Pick one element and check with element at alternate position.
         int pick = nums[index] + houseRobber(index - 2, dpArr, nums);
+        // Not picked element is 0 and the adjacent element will be checked with.
         int notPick = 0 + houseRobber(index - 1, dpArr, nums);
 
         dpArr[index] = Math.max(pick, notPick);
