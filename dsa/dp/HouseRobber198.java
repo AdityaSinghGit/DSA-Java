@@ -4,7 +4,7 @@ public class HouseRobber198 {
     // Leetcode 198
     // https://leetcode.com/problems/house-robber/
     public static void main(String[] args) {
-        int[] nums = { 2, 7, 9, 3, 1 };
+        int[] nums = { 2, 7, 9, 3, 1 }; // 12
         int ans = rob3(nums);
         System.out.println(ans);
     }

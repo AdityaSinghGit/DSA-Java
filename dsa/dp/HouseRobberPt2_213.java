@@ -1,12 +1,15 @@
 package dp;
 
 public class HouseRobberPt2_213 {
+    // Leetcode 213
+    // https://leetcode.com/problems/house-robber-ii/description/
     public static void main(String[] args) {
-        int[] nums = { 1 };
-        int ans = rob(nums);
+        int[] nums = { 1, 2, 3, 1 }; // 4
+        int ans = rob3(nums);
         System.out.println(ans);
     }
 
+    // APPROACH 1 - R&M
     public static int rob(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
@@ -56,5 +59,42 @@ public class HouseRobberPt2_213 {
         dpArr[index] = Math.max(pick, notPick);
 
         return dpArr[index];
+    }
+
+    // APPROACH 3 - Space Optimization
+    public static int rob3(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+
+        int[] temp1 = new int[nums.length - 1];
+        for (int i = 1; i < nums.length; i++) {
+            temp1[i - 1] = nums[i];
+        }
+
+        int[] temp2 = new int[nums.length - 1];
+        for (int i = 0; i < nums.length - 1; i++) {
+            temp2[i] = nums[i];
+        }
+
+        return Math.max(helper(nums), helper(nums));
+    }
+
+    private static int helper(int[] nums) {
+        int prev1 = nums[0];
+        int prev2 = 0;
+
+        for (int i = 1; i < nums.length; i++) {
+            int take = nums[i];
+            if (i > 1)
+                take += prev2;
+
+            int notTake = 0 + prev1;
+            int curr = Math.max(take, notTake);
+            prev2 = prev1;
+            prev1 = curr;
+        }
+
+        return prev1;
     }
 }
