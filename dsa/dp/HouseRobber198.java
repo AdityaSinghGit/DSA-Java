@@ -4,11 +4,13 @@ public class HouseRobber198 {
     // Leetcode 198
     // https://leetcode.com/problems/house-robber/
     public static void main(String[] args) {
-
+        int[] nums = { 2, 7, 9, 3, 1 };
+        int ans = rob3(nums);
+        System.out.println(ans);
     }
 
     // APPROACH 1 : R&M
-    public int rob(int[] nums) {
+    public static int rob(int[] nums) {
         int[] dpArr = new int[nums.length];
 
         for (int i = 0; i < dpArr.length; i++) {
@@ -18,7 +20,7 @@ public class HouseRobber198 {
         return houseRobber(nums.length - 1, dpArr, nums);
     }
 
-    private int houseRobber(int index, int[] dpArr, int[] nums) {
+    private static int houseRobber(int index, int[] dpArr, int[] nums) {
         if (index == 0) {
             return nums[0];
         }
@@ -37,5 +39,24 @@ public class HouseRobber198 {
         dpArr[index] = Math.max(pick, notPick);
 
         return dpArr[index];
+    }
+
+    // APPROACH 3 - Space Optimization
+    public static int rob3(int[] nums) {
+        int prev1 = nums[0];
+        int prev2 = 0;
+
+        for (int i = 1; i < nums.length; i++) {
+            int take = nums[i];
+            if (i > 1)
+                take += prev2;
+
+            int notTake = 0 + prev1;
+            int curr = Math.max(take, notTake);
+            prev2 = prev1;
+            prev1 = curr;
+        }
+
+        return prev1;
     }
 }
