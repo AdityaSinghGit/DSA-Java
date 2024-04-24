@@ -4,10 +4,11 @@ public class FiboWithMemoization509 {
     // Leetcode 509
     // https://leetcode.com/problems/fibonacci-number/description/
     public static void main(String[] args) {
-        System.out.println((long) fib3(30));
+        System.out.println((long) fib1(5));
     }
 
-    // APPROACH 1 - Recursion & Memoization
+    // APPROACH 1 - Recursion & Memoization - TOP-DOWN
+    // O(n) (for the recursion stack) + O(n) (for memoization data structure) = O(n)
     public static int fib1(int n) {
         int[] dpArr = new int[n + 1];
 
@@ -32,7 +33,7 @@ public class FiboWithMemoization509 {
         return dpArr[n];
     }
 
-    // APPROACH 2 - Tabulation
+    // APPROACH 2 - Tabulation - BOTTOM - UP
     public static int fib2(int n) {
         int[] dpArr = new int[n + 1];
 
