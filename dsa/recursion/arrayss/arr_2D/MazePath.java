@@ -1,14 +1,31 @@
-package backtracking;
+package recursion.arrayss.arr_2D;
 
 public class MazePath {
     public static void main(String[] args) {
+        int ans = mazeCountPath(3, 3);
 
-        // mazePath("", 3, 3);
+        System.out.println(ans);
+
+        mazePath("", 3, 3);
 
         mazePathDiagonalAllowed("", 3, 3);
 
-        // int ans = mazePathCount(3, 3);
-        // System.out.println(ans);
+    }
+
+    // TIME : O(2 ^ (m*n))
+    // SPACE : O((m-1) + (n-1))
+
+    // RETURNS COUNT
+    static int mazeCountPath(int r, int c) {
+        int count = 0;
+        if (r == 1 || c == 1) {
+            return 1;
+        }
+        count += mazeCountPath(r - 1, c);
+        count += mazeCountPath(r, c - 1);
+
+        return count;
+
     }
 
     // PRINTS ALL PATHS TO REACH GOAL
@@ -42,19 +59,6 @@ public class MazePath {
         if (c > 1) {
             mazePathDiagonalAllowed(p + 'R', r, c - 1);
         }
-
-    }
-
-    // RETURNS COUNT
-    static int mazePathCount(int r, int c) {
-        int count = 0;
-        if (r == 1 || c == 1) {
-            return 1;
-        }
-        count += mazePathCount(r - 1, c);
-        count += mazePathCount(r, c - 1);
-
-        return count;
 
     }
 
