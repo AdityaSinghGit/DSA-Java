@@ -2,14 +2,8 @@ package trees.questions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Stack;
-
-import javax.swing.tree.TreeNode;
-
-import org.w3c.dom.Node;
 
 public class DFS {
     int diameter = 0;
@@ -199,7 +193,7 @@ public class DFS {
             return;
         }
 
-        List<Integer> result = new ArrayList();
+        List<Integer> result = new ArrayList<>();
 
         Stack<Node> stack = new Stack<>();
         stack.push(node);
@@ -217,5 +211,28 @@ public class DFS {
         }
 
     }
+
     // -----------------X------------X----------X-------------------
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int value) {
+            this.val = value;
+        }
+    }
+
+    private class Node {
+        int val;
+        Node left;
+        Node right;
+        @SuppressWarnings("unused")
+        Node next;
+
+        @SuppressWarnings("unused")
+        Node(int val) {
+            this.val = val;
+        }
+    }
 }

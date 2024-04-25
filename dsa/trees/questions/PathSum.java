@@ -1,7 +1,5 @@
 package trees.questions;
 
-import javax.swing.tree.TreeNode;
-
 public class PathSum {
 
     // LeetCode 112
@@ -56,5 +54,16 @@ public class PathSum {
 
         tempSum -= root.val;
     }
+
     // -----------------X------------X----------X-------------------
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        @SuppressWarnings("unused")
+        TreeNode(int value) {
+            this.val = value;
+        }
+    }
 }

@@ -1,18 +1,9 @@
 package trees.questions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Scanner;
-
-import javax.swing.tree.TreeNode;
-
-import org.w3c.dom.Node;
-
-import trees.CustomBinaryTree;
 
 public class BFS {
 
@@ -90,8 +81,6 @@ public class BFS {
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            int ans = 0;
             TreeNode currentNode = queue.poll();
 
             if (currentNode.left != null) {
@@ -100,7 +89,7 @@ public class BFS {
             if (currentNode.right != null) {
                 queue.offer(currentNode.right);
             }
-            if (currentNode.value == val) {
+            if (currentNode.val == val) {
                 break;
             }
         }
@@ -272,7 +261,7 @@ public class BFS {
         }
 
         int n = level(node.left, x, level + 1);
-        if (n != null) {
+        if (n > 0) {
             return n;
         }
 
@@ -297,7 +286,7 @@ public class BFS {
             return false;
         }
 
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root.left);
         queue.add(root.right);
 
@@ -324,6 +313,29 @@ public class BFS {
         }
         return true;
     }
-    // -----------------X------------X----------X-------------------
 
+    // -----------------X------------X----------X-------------------
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        @SuppressWarnings("unused")
+        TreeNode(int value) {
+            this.val = value;
+        }
+    }
+
+    private class Node {
+        @SuppressWarnings("unused")
+        int val;
+        Node left;
+        Node right;
+        Node next;
+
+        @SuppressWarnings("unused")
+        Node(int val) {
+            this.val = val;
+        }
+    }
 }

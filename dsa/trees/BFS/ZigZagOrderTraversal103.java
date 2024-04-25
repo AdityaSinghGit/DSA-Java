@@ -1,12 +1,9 @@
 package trees.BFS;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
-import javax.swing.tree.TreeNode;
 
 public class ZigZagOrderTraversal103 {
     // https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
@@ -49,6 +46,17 @@ public class ZigZagOrderTraversal103 {
         }
         return result;
 
+    }
+
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        @SuppressWarnings("unused")
+        TreeNode(int value) {
+            this.val = value;
+        }
     }
 
 }

@@ -13,7 +13,7 @@ public class HouseRobberPt2_213 {
         System.out.println(ans);
     }
 
-    // APPROACH 1 - R&M
+    // APPROACH 1 - R&M ***************************
     public static int rob(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
@@ -65,7 +65,7 @@ public class HouseRobberPt2_213 {
         return dpArr[index];
     }
 
-    // APPROACH 3 - Space Optimization
+    // APPROACH 3 - Space Optimization *************************
     public static int rob3(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
