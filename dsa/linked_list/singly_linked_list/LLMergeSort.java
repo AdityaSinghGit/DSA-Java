@@ -12,10 +12,12 @@ public class LLMergeSort {
         Node() {
         }
 
+        @SuppressWarnings("unused")
         Node(int value) {
             this.value = value;
         }
 
+        @SuppressWarnings("unused")
         Node(int value, Node node) {
             this.value = value;
             this.next = node;
