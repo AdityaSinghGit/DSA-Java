@@ -34,7 +34,7 @@ public class RightSideView199 {
                     queue.offer(currentNode.right);
                 }
             }
-            result.add(list.get(list.size() - 1));
+            result.add(list.get(list.size() - 1)); // logic
         }
         return result;
     }
