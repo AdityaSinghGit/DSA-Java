@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import trees.Nodes.TreeNode;
+
 public class ZigZagOrderTraversal103 {
     // https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
@@ -46,17 +48,6 @@ public class ZigZagOrderTraversal103 {
         }
         return result;
 
-    }
-
-    private class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        @SuppressWarnings("unused")
-        TreeNode(int value) {
-            this.val = value;
-        }
     }
 
 }

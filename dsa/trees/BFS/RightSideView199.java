@@ -7,10 +7,11 @@ import java.util.Queue;
 
 import trees.Nodes.TreeNode;
 
-public class LevelOrderTraversal102 {
-    // https://leetcode.com/problems/binary-tree-level-order-traversal/description/
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+public class RightSideView199 {
+    // Leetcode 199
+    // https://leetcode.com/problems/binary-tree-right-side-view/description/
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
 
         if (root == null) {
             return result;
@@ -20,11 +21,11 @@ public class LevelOrderTraversal102 {
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            List<Integer> list = new ArrayList<>(levelSize);
-
-            for (int i = 0; i < levelSize; i++) {
+            int leveltSize = queue.size();
+            List<Integer> list = new ArrayList<>(leveltSize);
+            for (int i = 0; i < leveltSize; i++) {
                 TreeNode currentNode = queue.poll();
+
                 list.add(currentNode.val);
                 if (currentNode.left != null) {
                     queue.offer(currentNode.left);
@@ -33,7 +34,7 @@ public class LevelOrderTraversal102 {
                     queue.offer(currentNode.right);
                 }
             }
-            result.add(list);
+            result.add(list.get(list.size() - 1));
         }
         return result;
     }

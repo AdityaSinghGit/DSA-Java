@@ -3,6 +3,8 @@ package trees.BFS;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import trees.Nodes.Node;
+
 public class PopulatingNextRightPointer116 {
     // LeetCode 116
     // https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/
@@ -57,18 +59,5 @@ public class PopulatingNextRightPointer116 {
             leftMost = leftMost.left;
         }
         return root;
-    }
-
-    private class Node {
-        @SuppressWarnings("unused")
-        int value;
-        Node left;
-        Node right;
-        Node next;
-
-        @SuppressWarnings("unused")
-        Node(int value) {
-            this.value = value;
-        }
     }
 }
