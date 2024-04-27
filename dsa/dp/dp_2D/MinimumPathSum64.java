@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class MinimumPathSum64 {
     // Leetcode 64
     // https://leetcode.com/problems/minimum-path-sum/description/
+
     // TIME : O(m*n)
     // SPACE : O((m-1) + (n-1))(Rec Stack) + O(m*n)(dp)
     public static void main(String[] args) {
@@ -31,7 +32,7 @@ public class MinimumPathSum64 {
         }
 
         if (r < 0 || c < 0) {
-            return 1000000;
+            return 1000000; // return large value
         }
 
         if (dpArr[r][c] != -1) {
