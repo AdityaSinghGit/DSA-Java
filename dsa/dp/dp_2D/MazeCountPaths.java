@@ -18,7 +18,7 @@ public class MazeCountPaths {
     }
 
     public static int countPaths(int r, int c, int[][] dpArr) {
-        if (r == 0 || c == 0) {
+        if (r == 0 && c == 0) {
             return 1;
         }
 
