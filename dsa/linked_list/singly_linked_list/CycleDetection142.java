@@ -6,6 +6,8 @@ public class CycleDetection142 {
     // Leeftcode 142
     // https://leetcode.com/problems/linked-list-cycle-ii/description/
 
+    // TIME : O(n)
+    // SPACE : O(1)
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -19,8 +21,13 @@ public class CycleDetection142 {
                 do {
                     slow = slow.next;
                     cycleLen++;
-                } while (fast == slow);
+                } while (fast != slow);
+                break;
             }
+        }
+
+        if (cycleLen == 0) {
+            return null;
         }
 
         fast = head;

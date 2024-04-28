@@ -1,6 +1,11 @@
 package linked_list.singly_linked_list;
 
 public class HappyNumber202 {
+    // Leetcode 202
+    // https://leetcode.com/problems/happy-number/
+
+    // TIME : O(n)
+    // SPACE : O(1)
     public boolean isHappy(int n) {
         int fast = n;
         int slow = n;

@@ -3,7 +3,7 @@ package recursion.arrayss.permutations;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PermutationArr {
+public class PermutationArr46 {
     // Leetcode 46
     // https://leetcode.com/problems/permutations/
     public static void main(String[] args) {

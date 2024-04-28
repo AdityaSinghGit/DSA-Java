@@ -3,6 +3,11 @@ package trees.DFS;
 import trees.Nodes.TreeNode;
 
 public class DiameterOfBinaryTree543 {
+    // Leetcode 543
+    // https://leetcode.com/problems/diameter-of-binary-tree/
+
+    // TIME : O(n)
+    // SPACE : O(n) if binary tree is skewed
 
     int diameter = 0;
 
