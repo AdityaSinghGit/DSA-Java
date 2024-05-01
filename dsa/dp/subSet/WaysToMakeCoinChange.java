@@ -9,12 +9,11 @@ public class WaysToMakeCoinChange {
         int n = denominations.length;
 
         for (long[] rows : dpArr) {
-            // Arrays.fill(rows, -1); // for helper
-            Arrays.fill(rows, 0); // for helper2
+            Arrays.fill(rows, -1); // APPROACH 1
+            // Arrays.fill(rows, 0); // APPROACH 2
         }
 
-        // return helper(n - 1, value, denominations, dpArr); // APPROACH 1
-        return helper2(n, value, denominations, dpArr); // APPROACH 2
+        return helper(n - 1, value, denominations, dpArr);
     }
 
     // APPROACH 1 : Recursion & Memoization
@@ -43,27 +42,41 @@ public class WaysToMakeCoinChange {
     }
 
     // APPROACH 2 : Tabulation
-    private static long helper2(int index, int target, int[] nums, long[][] dpArr) {
-        for (int t = 0; t <= target; t++) {
-            dpArr[0][t] = t % nums[0] == 0 ? 1 : 0;
+    public static long countWaysToMakeChange2(int denominations[], int value) {
+        long[][] dpArr = new long[denominations.length][value + 1];
+        int n = denominations.length;
+
+        for (long[] rows : dpArr) {
+            // Arrays.fill(rows, -1); // APPROACH 1
+            Arrays.fill(rows, 0); // APPROACH 2
         }
 
-        for (int i = 1; i < index; i++) {
-            for (int t = 0; t <= target; t++) {
-                long notTake = dpArr[i - 1][t];
-                long take = 0;
-                if (nums[i] <= t) {
-                    take = dpArr[i][t - nums[i]];
-                }
-                dpArr[i][t] = notTake + take;
+        for (int target = 0; target <= value; target++) {
+            if (target % denominations[0] == 0) {
+                dpArr[0][target] = 1;
+            } else {
+                dpArr[0][target] = 0;
             }
         }
-        return dpArr[index - 1][target];
+
+        for (int index = 1; index < denominations.length; index++) {
+            for (int target = 0; target <= value; target++) {
+                long notTake = dpArr[index - 1][target];
+                long take = 0;
+                if (denominations[index] <= target) {
+                    take = dpArr[index][target - denominations[index]];
+                }
+
+                dpArr[index][target] = notTake + take;
+            }
+        }
+
+        return dpArr[n - 1][value];
     }
 
     public static void main(String[] args) {
         int[] denominations = { 1, 2, 3 };
-        long ans = countWaysToMakeChange(denominations, 4);
+        long ans = countWaysToMakeChange2(denominations, 4);
         System.out.println(ans);
     }
 }
