@@ -1,0 +1,20 @@
+AMAZON Online Assessment for SDE 1, SDE 2, and SDET
+
+Part 1) - Coding Challenge with two questions
+
+Common Amazon Online Assessment Question Topics:
+
+⦿ Search/ Sort Algorithms
+⦿ Trees (especially binary trees)
+⦿ Graph Traversal
+⦿ Heaps & Stacks
+⦿ Linked lists
+⦿ Arrays/ Strings
+⦿ Hash tables
+⦿ Recursion.
+
+Part 2) - Work Simulation
+
+Part 3) - SDE Work Style Survey
+
+Part 4) - Amazon Work Style Survey

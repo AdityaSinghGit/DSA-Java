@@ -1,0 +1,8 @@
+GitHub Repositories -
+1) https://github.com/donnemartin/system-design-primer?tab=readme-ov-file (System Design Primer)
+
+Courses -
+1) https://www.educative.io/courses/grokking-modern-system-design-interview-for-engineers-managers (Grokking System Design on Educative)
+
+Interview Template - 
+1) https://leetcode.com/discuss/career/229177/My-System-Design-Template (System Design Template)

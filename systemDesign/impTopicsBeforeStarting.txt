@@ -1,0 +1,15 @@
+Imp topics before starting with System Design
+1) Scalability
+2) Perfrmance
+3) Latency a& throughput
+4) Consistency
+5) Availability
+6) Partition tolerance
+7) CAP theorem (CAP - Above 3 points)
+8) Domain Name System (DNS)
+9) Content Delivery Network (CDN)
+10) Load balancers & Reverse proxy
+11) Mircoservices
+12) Databases (SQL and No-SQL)
+13) Caching
+14) Message Queues
