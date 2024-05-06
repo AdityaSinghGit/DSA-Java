@@ -7,7 +7,8 @@ public class ClimbingStairs70 {
     // https://leetcode.com/problems/climbing-stairs/description/
     public static void main(String[] args) {
         int n = 3;
-        int ans = climbStairs(n);
+        // int ans = climbStairs(n);
+        int ans = climbStairs2(n);
         System.out.println(ans);
     }
 
@@ -43,8 +44,20 @@ public class ClimbingStairs70 {
         int[] dpArr = new int[n];
         Arrays.fill(dpArr, -1);
 
-        for (int i = 0; i <= n; i++)
+        dpArr[0] = 1;
 
-            return helper(n, dpArr);
+        int oneStep = 0;
+        int twoStep = 0;
+        for (int i = 1; i < n; i++) {
+            oneStep = dpArr[i];
+
+            if (i > 1) {
+                twoStep = dpArr[i - 1];
+            }
+
+            dpArr[i] = oneStep + twoStep;
+        }
+
+        return dpArr[n - 1];
     }
 }
