@@ -40,4 +40,24 @@ public class DoubleTheLinkedList2816 {
 
         return currentNode;
     }
+
+    public ListNode doubleIt2(ListNode head) {
+        int total = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            total = total * 10 + temp.value;
+            temp = temp.next;
+        }
+        total = total * 2;
+
+        String sol = Integer.toString(total);
+        ListNode ans = new ListNode();
+        ListNode answer = new ListNode(sol.charAt(sol.length() - 1) - 0);
+        int length = sol.length() - 2;
+        while (length > 0) {
+            ans.value = sol.charAt(length) - 0;
+            ans = ans.next;
+        }
+        return answer;
+    }
 }

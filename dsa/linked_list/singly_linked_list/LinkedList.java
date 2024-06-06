@@ -489,13 +489,36 @@ public class LinkedList {
     }
     // -----------x-------x-------x----------
 
+    public static Node doubleIt(Node head) {
+        LinkedList list = new LinkedList();
+        int total = 0;
+        Node temp = head;
+        while (temp != null) {
+            total = total * 10 + temp.value;
+            temp = temp.next;
+        }
+        total = total * 2;
+
+        String sol = Integer.toString(total);
+        System.out.println(sol);
+        Node ans = list.new Node(sol.charAt(0) - '0');
+        Node answer = ans;
+        int length = 1;
+        while (length < sol.length()) {
+            ans.next = list.new Node(sol.charAt(length) - '0');
+            ans = ans.next;
+            length++;
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
-        ll.insertLast(5);
-        ll.insertLast(4);
-        ll.insertLast(3);
-        ll.insertLast(2);
+        ll.insertLast(1);
+        ll.insertLast(8);
+        ll.insertLast(9);
+        // ll.insertLast(2);
         // ll.insertLast(5);
         // ll.display();
         // LinkedList ll2 = new LinkedList();
@@ -513,6 +536,10 @@ public class LinkedList {
         // ll.middleNodeWithPointers(ll);
 
         // reverseInPlace(ll.head);
+
+        ll.display();
+
+        doubleIt(ll.head);
 
         ll.display();
 

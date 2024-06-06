@@ -1,0 +1,21 @@
+Revision URL : https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898
+
+
+S - Single Responsibility Principle (SRP): A class should have only one reason to change, meaning it should have only one responsibility.
+
+O - Open/Closed Principle (OCP): Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. You should be able to extend the behavior of a module without modifying its source code.
+
+L - Liskov Substitution Principle (LSP): Subtypes should be substitutable for their base types without altering the correctness of the program. This means that objects of a superclass should be replaceable with objects of its subclasses without affecting the behavior of the program.
+
+I - Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they don't use. Instead of creating large interfaces that contain methods for all possible behaviors, it's better to create smaller, more specific interfaces that are tailored to the needs of individual clients.
+
+D - Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions. This principle encourages decoupling and promotes the use of abstractions (e.g., interfaces) to reduce dependency between modules.
+
+
+**************************************************************************************************************************************************************
+QUE : In SOLID principles how can single responsibility and open close principles exist together?
+
+ANS : Combining SRP and OCP: When you follow both SRP and OCP, you create classes that have a single responsibility and are open for extension but closed for modification. Each class does one thing and does it well, and if you need to extend its behavior, you can do so without changing its existing code.
+
+In summary, SRP and OCP can coexist because they address different aspects of software design. SRP focuses on ensuring that classes have a single responsibility, while OCP focuses on designing classes that are open for extension but closed for modification. By following both principles, you create modular, extensible, and maintainable software designs.
+**************************************************************************************************************************************************************
