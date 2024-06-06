@@ -1,4 +1,8 @@
-Revision URL : https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898
+Revision URL : 
+
+https://www.oodesign.com/design-principles/
+
+https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898
 
 
 S - Single Responsibility Principle (SRP): A class should have only one reason to change, meaning it should have only one responsibility.
