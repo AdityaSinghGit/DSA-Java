@@ -1,0 +1,4 @@
+The fundamental of every design pattern is to separate out what changes over period of time from what remains constant. 
+As you see in Strategy pattern, we are trying to separate out dependency of drive from the main class  as much as possible by making various strategies 
+to inject it dynamically based on client requirement so that in future if new requirement for drive comes, 
+there will be minimal/no changes in existing code(Open closed Principle).
