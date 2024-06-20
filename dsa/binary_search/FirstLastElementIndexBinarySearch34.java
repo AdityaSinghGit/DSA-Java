@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FirstLastElementIndexBinarySearch34 {
     public static void main(String[] args) {
-        int[] arr = { 5, 7, 7, 8, 8, 10 };
+        int[] arr = { 5, 7, 7, 8, 8, 8, 10 };
         int target = 8;
         int firstIn = findFirstAndLastIndex(arr, target, true);
         int endIn = findFirstAndLastIndex(arr, target, false);

@@ -6,3 +6,6 @@ Courses -
 
 Interview Template - 
 1) https://leetcode.com/discuss/career/229177/My-System-Design-Template (System Design Template)
+
+LLD code and designs -
+1) https://gitlab.com/shrayansh8/interviewcodingpractise/-/tree/main/src/LowLevelDesign (By Shreyansh Jain)

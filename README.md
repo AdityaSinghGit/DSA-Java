@@ -1,4 +1,4 @@
-This repo represents my journey in learning DSA with Java.
+This repo represents my journey in learning DSA adn System Design with Java.
 
 I am and will be solving questions from LeetCode and similar platforms.
 

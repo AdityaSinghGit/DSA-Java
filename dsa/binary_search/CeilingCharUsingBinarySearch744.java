@@ -5,7 +5,8 @@ public class CeilingCharUsingBinarySearch744 {
     /// if last char in array then return first index
     public static void main(String[] args) {
         char[] arr = { 'a', 'c', 'e', 'x' };
-        char target = 'd';
+        // char target = 'd';
+        char target = 'y';
         char ans = orderAgnosticBs(arr, target);
         System.out.println(ans);
     }
@@ -24,6 +25,11 @@ public class CeilingCharUsingBinarySearch744 {
             }
 
         }
+        // Divident / Divisor
+        // if Divident < Divisor = Divident
+        // if Divident > Divisor = Remainder
+        // So if start = 4 & len = 3 then remainder = 1
+        // and if start = 2 & len = 3 then remainde = 2
         return arr[start % arr.length];
 
     }
