@@ -17,3 +17,5 @@ For DP problems, follow the 3 simple rules under the following methods-
 -> NOTE: Number of changing parameters = Number of nested loops
 
 3) Copy the recurrence
+
+### SPACE OPTIMIZATION
