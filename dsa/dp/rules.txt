@@ -1,0 +1,19 @@
+For DP problems, follow the 3 simple rules under the following methods-
+
+### RECURSION AND MEMOIZATION (TOP - DOWN)
+1) Express in terms of (index, given)
+-> NOTE: Insert -1 in dpArr
+
+2) Explore all possibilities (eg. pick and notPick)
+
+3) Memoization (all possibilities)
+
+
+### TABULATION (BOTTOM - UP)
+1) Write the Base case
+-> NOTE: Insert 0 in dpArr {Default is always 0 in java so this is optional}
+
+2) Write the changing parameters (index, given)
+-> NOTE: Number of changing parameters = Number of nested loops
+
+3) Copy the recurrence

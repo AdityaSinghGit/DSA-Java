@@ -5,6 +5,9 @@ import java.util.Arrays;
 public class ClimbingStairs70 {
     // Leetcode 70
     // https://leetcode.com/problems/climbing-stairs/description/
+
+    // RULE 1: Express everything in terms of index
+    // RULE 2: Given field will be the second criteria (n in this case)
     public static void main(String[] args) {
         int n = 3;
         // int ans = climbStairs(n);
@@ -15,7 +18,7 @@ public class ClimbingStairs70 {
     // APPROACH 1 : R & M
     public static int climbStairs(int n) {
         int[] dpArr = new int[n];
-        Arrays.fill(dpArr, -1);
+        Arrays.fill(dpArr, -1); // O(n) complexity
         return helper(n, dpArr);
     }
 
