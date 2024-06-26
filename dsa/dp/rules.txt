@@ -19,3 +19,33 @@ For DP problems, follow the 3 simple rules under the following methods-
 3) Copy the recurrence
 
 ### SPACE OPTIMIZATION
+
+
+***************************************************************************************
+
+
+If a question asks you to "count the number of ways" then follow the rule below:
+
+'''
+1)    function(){
+
+2)        Base Case  //returns either 1 or 0
+
+3)        return function() + function();
+      }
+'''
+
+Eg: E:\Java\dsa\dp\subSet\strings\DistinctSubSeq115.java
+
+
+***************************************************************************************
+
+
+How to write a recurrence in case of strings?
+
+1) Express everything in terms of (i,j) where i = first string, j = second string
+2) Explore all possibilities
+3) Return sum of all possibilities
+4) Base case
+
+Eg: E:\Java\dsa\dp\subSet\strings\DistinctSubSeq115.java
