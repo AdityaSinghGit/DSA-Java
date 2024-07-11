@@ -5,7 +5,7 @@ public class HouseRobber198 {
     // https://leetcode.com/problems/house-robber/
     public static void main(String[] args) {
         int[] nums = { 2, 7, 9, 3, 1 }; // 12
-        int ans = rob3(nums);
+        int ans = rob2(nums);
         System.out.println(ans);
     }
 
@@ -38,27 +38,53 @@ public class HouseRobber198 {
         // Not picked element is 0 and the adjacent element will be checked with.
         int notPick = 0 + houseRobber(index - 1, dpArr, nums);
 
-        dpArr[index] = Math.max(pick, notPick);
+        return dpArr[index] = Math.max(pick, notPick);
+    }
 
-        return dpArr[index];
+    // APPROACH 2 : TABULATION
+    public static int rob1(int[] nums) {
+        int n = nums.length;
+        int[] dpArr = new int[n];
+
+        for (int i = 0; i < dpArr.length; i++) {
+            dpArr[i] = -1;
+        }
+
+        dpArr[0] = nums[0];
+        int neg = 0; // consider for -ve index or 2nd base case
+
+        for (int i = 1; i < n; i++) {
+            int pick = nums[i];
+            if (i > 1) {
+                pick += dpArr[i - 2];
+            }
+            int notPick = 0 + dpArr[i - 1];
+
+            dpArr[i] = Math.max(pick, notPick);
+        }
+
+        return dpArr[n - 1];
     }
 
     // APPROACH 3 - Space Optimization
-    public static int rob3(int[] nums) {
-        int prev1 = nums[0];
-        int prev2 = 0;
+    public static int rob2(int[] nums) {
+        int n = nums.length;
 
-        for (int i = 1; i < nums.length; i++) {
-            int take = nums[i];
-            if (i > 1)
-                take += prev2;
+        int prev = nums[0];
+        int prev2 = 0; // consider for -ve index or 2nd base case
 
-            int notTake = 0 + prev1;
-            int curr = Math.max(take, notTake);
-            prev2 = prev1;
-            prev1 = curr;
+        for (int i = 1; i < n; i++) {
+            int pick = nums[i];
+            if (i > 1) {
+                pick += prev2;
+            }
+            int notPick = 0 + prev;
+
+            int curri = Math.max(pick, notPick);
+            prev2 = prev;
+            prev = curri;
         }
 
-        return prev1;
+        return prev;
     }
 }
