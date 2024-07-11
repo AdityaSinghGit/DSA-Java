@@ -153,6 +153,8 @@ public class LinkedList {
     /**************************** INTERVIEW QUESTIONS ****************************/
 
     // Q1 - Insert Node at index using RECURSION
+    // For solution watch from 12:58
+    // https://www.youtube.com/watch?v=70tx7KcMROc&t=261s
     public void insertOnIndexRecursion(int val, int index) {
         head = insertNodeRecursion(val, index, head);
     }
@@ -253,20 +255,20 @@ public class LinkedList {
     // ****************LeetCode 141****************
     // https://leetcode.com/problems/linked-list-cycle/description/
     // (check notebook for understanding)
-    //
-    // public boolean hasCycle(ListNode head) {
-    // ListNode fast = head; // FAST AND SLOW POINTER METHOD
-    // ListNode slow = head;
 
-    // while(fast != null && fast.next != null){
-    // fast = fast.next.next;
-    // slow = slow.next;
-    // if(fast == slow){
-    // return true;
-    // }
-    // }
-    // return false;
-    // }
+    public boolean hasCycle(Node head) {
+        Node fast = head; // FAST AND SLOW POINTER METHOD
+        Node slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // ****************LeetCode 876****************
     // https://leetcode.com/problems/middle-of-the-linked-list/description/
