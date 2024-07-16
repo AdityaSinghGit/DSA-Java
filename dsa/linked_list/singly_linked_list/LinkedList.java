@@ -1,5 +1,7 @@
 package linked_list.singly_linked_list;
 
+import linked_list.ListNode;
+
 public class LinkedList {
     private Node head;
     private Node tail;
@@ -300,6 +302,9 @@ public class LinkedList {
 
     /******** REVERSE A LINKED LIST ********/
 
+    // For better code check
+    // E:\Java\dsa\linked_list\singly_linked_list\ReverseLinkedList206.java
+
     // 1. USING RECURSION
     public void reverseWithRecursion(Node node) {
         if (node == tail) {
@@ -333,6 +338,42 @@ public class LinkedList {
         return prev;
     }
     // -----------x-------x-------x----------
+
+    public static boolean isPalindrome(Node head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+
+        Node newHead = helper(head);
+
+        Node first = head;
+        Node second = newHead;
+
+        while (first != null && first.next != null) {
+            if (first.value != second.value) {
+                System.out.println("False");
+                return false;
+            }
+            first = first.next;
+            second = second.next;
+        }
+        System.out.println("True");
+        return true;
+    }
+
+    private static Node helper(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Node newHead = helper(head.next);
+
+        Node front = head.next;
+        front.next = head;
+        head.next = null;
+
+        return newHead;
+    }
 
     // ****************LeetCode 234****************
     // https://leetcode.com/problems/palindrome-linked-list/description/
@@ -489,40 +530,51 @@ public class LinkedList {
 
         return prev;
     }
-    // -----------x-------x-------x----------
 
+    // -----------x-------x-------x----------
+    // Leetcode 2816
+    // https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/?envType=daily-question&envId=2024-05-07
+    // For Solution
+    // https://www.youtube.com/watch?v=KpjU5dy-ZcA
     public static Node doubleIt(Node head) {
+        if (head == null)
+            return head;
+
         LinkedList list = new LinkedList();
-        int total = 0;
+
+        long total = 0;
         Node temp = head;
         while (temp != null) {
             total = total * 10 + temp.value;
             temp = temp.next;
         }
-        total = total * 2;
 
-        String sol = Integer.toString(total);
-        System.out.println(sol);
-        Node ans = list.new Node(sol.charAt(0) - '0');
-        Node answer = ans;
-        int length = 1;
-        while (length < sol.length()) {
-            ans.next = list.new Node(sol.charAt(length) - '0');
-            ans = ans.next;
-            length++;
+        total *= 2;
+        String num = Long.toString(total);
+        num = num.substring(0, num.length() - 2);
+
+        Node newHead = list.new Node(num.charAt(0) - '0');
+        Node front = newHead;
+        for (int i = 1; i < num.length(); i++) {
+            front.next = list.new Node(num.charAt(i) - '0');
+            front = front.next;
         }
-        return answer;
+
+        return newHead;
     }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
 
-        ll.insertLast(1);
         ll.insertLast(8);
+        ll.insertLast(3);
+        ll.insertLast(6);
         ll.insertLast(9);
-        // ll.insertLast(2);
-        // ll.insertLast(5);
-        // ll.display();
+        ll.insertLast(9);
+        ll.insertLast(9);
+        ll.insertLast(9);
+        ll.insertLast(9);
+        ll.display();
         // LinkedList ll2 = new LinkedList();
 
         // ll2.insertLast(1);
@@ -539,7 +591,9 @@ public class LinkedList {
 
         // reverseInPlace(ll.head);
 
-        ll.display();
+        // LinkedList.isPalindrome(ll.head);
+
+        // ll.display();
 
         doubleIt(ll.head);
 

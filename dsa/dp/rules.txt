@@ -6,7 +6,7 @@ For DP problems, follow the 3 simple rules under the following methods-
 
 2) Explore all possibilities (eg. pick and notPick)
 
-3) Memoization (all possibilities)
+3) return min max or ways (all possibilities)
 
 
 ### TABULATION (BOTTOM - UP)
@@ -17,6 +17,7 @@ For DP problems, follow the 3 simple rules under the following methods-
 -> NOTE: Number of changing parameters = Number of nested loops
 
 3) Copy the recurrence
+
 
 ### SPACE OPTIMIZATION
 
@@ -31,7 +32,10 @@ If a question asks you to "count the number of ways" then follow the rule below:
 
 2)        Base Case  //returns either 1 or 0
 
-3)        return function() + function();
+3)        left = function(); 
+          right = function();
+
+          return left + right;
       }
 '''
 
