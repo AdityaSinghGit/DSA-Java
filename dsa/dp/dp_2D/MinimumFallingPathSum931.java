@@ -6,56 +6,128 @@ public class MinimumFallingPathSum931 {
     // Leetcode 931
     // https://leetcode.com/problems/minimum-falling-path-sum/description/
 
-    // TIME : O(m*n)
-    // SPACE : O((m-1) + (n-1))(Rec Stack) + O(m*n)(dp)
+    // TIME : O(3^n)
+    // SPACE : O(n)
     public static void main(String[] args) {
-        // int[][] grid = { { 2, 1, 3 }, { 6, 5, 4 }, { 7, 8, 9 } }; // 13
-        // int[][] grid = { { -19, 57 }, { -40, -5 } }; // -59
-        // int[][] grid = { { -84, -36, 2 }, { 87, -79, 10 }, { 42, 10, 63 } }; // -153
-        int[][] grid = { { -80, -13, 22 }, { 83, 94, -5 }, { 73, -48, 61 } }; // -66
+        // int[][] grid = { { 1, 2, 10, 4 }, { 100, 3, 2, 1 }, { 1, 1, 20, 2 }, { 1, 2,
+        // 2, 1 } }; // 105
+        int[][] grid = { { 10, 10, 2, -13, 20, 4 }, { 1, -9, -81, 30, 2, 5 }, { 0, 10, 4, -79, 2, -10 },
+                { 1, -5, 2, 20, -11, 4 } }; // 74
 
-        int ans = minFallingPathSum(grid);
+        int ans = getMaxPathSum2(grid);
 
         System.out.println(ans);
     }
 
-    public static int minFallingPathSum(int[][] matrix) {
-        if (matrix.length == 1) {
-            return matrix[0][0];
-        }
-        int[][] dpArr = new int[matrix.length][matrix[0].length];
+    // R & M
+    // TIME : O(m*n)
+    // SPACE : O(n) + O(m*n)(dp)
+    public static int getMaxPathSum(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
 
-        for (int[] rows : dpArr) {
-            Arrays.fill(rows, Integer.MAX_VALUE);
-        }
+        int[][] dp = new int[m][n];
 
-        int ans = Integer.MAX_VALUE;
-        for (int i = 0; i < matrix.length; i++) {
-            ans = Math.min(ans, pathSum(0, i, dpArr, matrix));
+        for (int[] row : dp) {
+            Arrays.fill(row, -100000);
         }
 
-        return ans;
+        int maxi = -100000;
+        for (int j = 0; j < n; j++) {
+            maxi = Math.max(maxi, helper(m - 1, j, matrix, dp));
+        }
+
+        return maxi;
     }
 
-    private static int pathSum(int r, int c, int[][] dpArr, int[][] matrix) {
-        if ((r == matrix.length - 1 && c > -1 && c < matrix[0].length))
-            return matrix[r][c];
-
-        if (r > matrix.length || c > matrix.length - 1 || c < 0) {
-            return 100000;
+    private static int helper(int i, int j, int[][] matrix, int[][] dp) {
+        if (j < 0 || j >= matrix[0].length) {
+            return -100000;
+        }
+        if (i == 0) {
+            return matrix[0][j];
         }
 
-        if (dpArr[r][c] != Integer.MAX_VALUE) {
-            return dpArr[r][c];
+        if (dp[i][j] != -100000) {
+            return dp[i][j];
         }
 
-        int down = matrix[r][c] + pathSum(r + 1, c, dpArr, matrix);
-        int diagLeft = matrix[r][c] + pathSum(r + 1, c - 1, dpArr, matrix);
-        int diagRight = matrix[r][c] + pathSum(r + 1, c + 1, dpArr, matrix);
+        int up = matrix[i][j] + helper(i - 1, j, matrix, dp);
+        int left = matrix[i][j] + helper(i - 1, j - 1, matrix, dp);
+        int right = matrix[i][j] + helper(i - 1, j + 1, matrix, dp);
 
-        dpArr[r][c] = Math.min(diagLeft, diagRight);
-        dpArr[r][c] = Math.min(down, dpArr[r][c]);
+        return dp[i][j] = Math.max(up, Math.max(left, right));
+    }
 
-        return dpArr[r][c];
+    // Tabulation
+    // TIME : O(m*n)
+    // SPACE : O(m*n)
+    public static int getMaxPathSum1(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[][] dp = new int[m][n];
+
+        for (int j = 0; j < n; j++) {
+            dp[0][j] = matrix[0][j];
+        }
+
+        for (int i = 1; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int up = matrix[i][j] + dp[i - 1][j];
+                int left = -100000;
+                int right = -100000;
+                if (j > 0)
+                    left = matrix[i][j] + dp[i - 1][j - 1];
+                if (j < n - 1)
+                    right = matrix[i][j] + dp[i - 1][j + 1];
+
+                dp[i][j] = Math.max(up, Math.max(left, right));
+            }
+        }
+
+        int maxi = -100000;
+        for (int j = 0; j < n; j++) {
+            maxi = Math.max(maxi, dp[m - 1][j]);
+        }
+
+        return maxi;
+    }
+
+    // Space optimization
+    // TIME : O(m*n)
+    // SPACE : O(n)
+    public static int getMaxPathSum2(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[] prev = new int[n];
+
+        for (int j = 0; j < n; j++) {
+            prev[j] = matrix[0][j];
+        }
+
+        for (int i = 1; i < m; i++) {
+            int[] curr = new int[n];
+            for (int j = 0; j < n; j++) {
+                int up = matrix[i][j] + prev[j];
+                int left = -100000;
+                int right = -100000;
+                if (j > 0)
+                    left = matrix[i][j] + prev[j - 1];
+                if (j < n - 1)
+                    right = matrix[i][j] + prev[j + 1];
+
+                curr[j] = Math.max(up, Math.max(left, right));
+            }
+            prev = curr;
+        }
+
+        int maxi = -100000;
+        for (int j = 0; j < n; j++) {
+            maxi = Math.max(maxi, prev[j]);
+        }
+
+        return maxi;
     }
 }
