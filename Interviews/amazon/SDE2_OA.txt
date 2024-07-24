@@ -11,7 +11,7 @@ Common Amazon Online Assessment Question Topics:
 ⦿ Linked lists
 ⦿ Arrays/ Strings
 ⦿ Hash tables
-⦿ Recursion.
+⦿ Recursion
 
 Part 2) - Work Simulation
 

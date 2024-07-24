@@ -76,7 +76,7 @@ public class Knapsack01 {
 
     // METHOD 3: SPACE OPTIMIZATION
     // TC: O(N x W)
-    // SC: O(N x W)
+    // SC: O(N)
     public static int maxProfit2(ArrayList<Integer> values, ArrayList<Integer> weights, int n, int maxWeight) {
         int[][] dpArr = new int[n][maxWeight + 1];
 
