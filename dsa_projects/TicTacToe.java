@@ -1,4 +1,4 @@
-package projects;
+package dsa_projects;
 
 import java.util.Scanner;
 
