@@ -4,52 +4,52 @@ import java.util.Arrays;
 
 public class WaysToMakeCoinChange {
     // https://www.naukri.com/code360/problems/ways-to-make-coin-change_630471?interviewProblemRedirection=true&leftPanelTabValue=PROBLEM
-    public static long countWaysToMakeChange(int denominations[], int value) {
-        long[][] dpArr = new long[denominations.length][value + 1];
-        int n = denominations.length;
 
-        for (long[] rows : dpArr) {
-            Arrays.fill(rows, -1); // APPROACH 1
-            // Arrays.fill(rows, 0); // APPROACH 2
-        }
-
-        return helper(n - 1, value, denominations, dpArr);
-    }
+    // TC: O(exponential)
+    // SC: greater than O(N) OR O(Target) : bcz we're iterating on the same position
 
     // APPROACH 1 : Recursion & Memoization
-    private static long helper(int index, int target, int[] nums, long[][] dpArr) {
-        if (index == 0) {
-            if (target % nums[0] == 0) {
+    // TC: O(N x M)
+    // SC: O(N x M) + O(Target)
+    public static long countWaysToMakeChange(int denominations[], int value) {
+        int n = denominations.length;
+        long[][] dp = new long[n][value + 1];
+
+        for (long[] row : dp) {
+            Arrays.fill(row, -1);
+        }
+
+        return helper(n - 1, value, denominations, dp);
+    }
+
+    private static long helper(int ind, int val, int[] arr, long[][] dp) {
+        if (ind == 0) {
+            if (val % arr[ind] == 0) {
                 return 1;
             } else {
                 return 0;
             }
         }
 
-        if (dpArr[index][target] != -1) {
-            return dpArr[index][target];
+        if (dp[ind][val] != -1) {
+            return dp[ind][val];
         }
 
-        long notTake = helper(index - 1, target, nums, dpArr);
+        long notTake = helper(ind - 1, val, arr, dp);
         long take = 0;
-        if (nums[index] <= target) {
-            take = helper(index, target - nums[index], nums, dpArr);
+        if (val >= arr[ind]) {
+            take = helper(ind, val - arr[ind], arr, dp);
         }
 
-        dpArr[index][target] = notTake + take;
-
-        return dpArr[index][target];
+        return dp[ind][val] = take + notTake;
     }
 
     // APPROACH 2 : Tabulation
+    // TC: O(N x M)
+    // SC: O(N x M)
     public static long countWaysToMakeChange2(int denominations[], int value) {
         long[][] dpArr = new long[denominations.length][value + 1];
         int n = denominations.length;
-
-        for (long[] rows : dpArr) {
-            // Arrays.fill(rows, -1); // APPROACH 1
-            Arrays.fill(rows, 0); // APPROACH 2
-        }
 
         for (int target = 0; target <= value; target++) {
             if (target % denominations[0] == 0) {
@@ -74,9 +74,40 @@ public class WaysToMakeCoinChange {
         return dpArr[n - 1][value];
     }
 
+    // APPROACH 3 : Space opt
+    // TC: O(N x M)
+    // SC: O(N)
+    public static long countWaysToMakeChange3(int denominations[], int value) {
+        long[] prev = new long[value + 1];
+
+        for (int target = 0; target <= value; target++) {
+            if (target % denominations[0] == 0) {
+                prev[target] = 1;
+            } else {
+                prev[target] = 0;
+            }
+        }
+
+        for (int index = 1; index < denominations.length; index++) {
+            long[] curr = new long[value + 1];
+            for (int target = 0; target <= value; target++) {
+                long notTake = prev[target];
+                long take = 0;
+                if (denominations[index] <= target) {
+                    take = curr[target - denominations[index]];
+                }
+
+                curr[target] = notTake + take;
+            }
+            prev = curr;
+        }
+
+        return prev[value];
+    }
+
     public static void main(String[] args) {
         int[] denominations = { 1, 2, 3 };
-        long ans = countWaysToMakeChange2(denominations, 4);
+        long ans = countWaysToMakeChange3(denominations, 4);
         System.out.println(ans);
     }
 }
