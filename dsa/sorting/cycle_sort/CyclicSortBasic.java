@@ -2,7 +2,7 @@ package sorting.cycle_sort;
 
 import java.util.Arrays;
 
-public class CyclicSort {
+public class CyclicSortBasic {
     public static void main(String[] args) {
         int[] arr = { 3, 1, 9, 7, 5, 4, 6, 2, 8 };
         int[] ans = cyclicSort(arr);
@@ -14,6 +14,7 @@ public class CyclicSort {
         while (i < arr.length) {
             int correctIndex = arr[i] - 1;
             if (arr[i] != arr[correctIndex]) {
+                // SWAP if mismatch
                 int temp = arr[correctIndex];
                 arr[correctIndex] = arr[i];
                 arr[i] = temp;
