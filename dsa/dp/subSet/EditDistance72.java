@@ -1,4 +1,4 @@
-package dp.subSet.strings;
+package dp.subSet;
 
 import java.util.Arrays;
 

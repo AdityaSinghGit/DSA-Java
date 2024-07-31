@@ -1,4 +1,4 @@
-package dp.subSet.strings;
+package dp.subSet;
 
 public class WildcardMatching44 {
     // Problem :

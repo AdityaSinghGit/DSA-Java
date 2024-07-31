@@ -3,6 +3,8 @@ package sorting.cycle_sort;
 import java.util.Arrays;
 
 public class CyclicSortBasic {
+    // TC: O(N)
+    // SC: O(1)
     public static void main(String[] args) {
         int[] arr = { 3, 1, 9, 7, 5, 4, 6, 2, 8 };
         int[] ans = cyclicSort(arr);
