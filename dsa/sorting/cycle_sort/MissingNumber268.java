@@ -1,7 +1,6 @@
 package sorting.cycle_sort;
 
 // https://leetcode.com/problems/missing-number/
-
 //Amazon question
 
 public class MissingNumber268 {
