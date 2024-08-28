@@ -2,7 +2,7 @@ package arrayss;
 
 public class BuyAndSellStocks121 {
     public static void main(String[] args) {
-        int[] arr = { 7, 1, 5, 3, 6, 4 };
+        int[] arr = { 7, 1, 5, 3, 7, 44, 67, 33, 3, 55, 51, 66, 82, 29, 67, 6, 4 };
         System.out.println(maxProfitModifiedResult(arr));
     }
 
